@@ -1,8 +1,7 @@
 <h1>Tic-Tac-Toe Game</h1>
 This repository contains a web-based implementation of the classic game Tic-Tac-Toe. The game supports different modes, including Human vs Human, Human vs AI, and AI vs AI. The game interface is built using HTML, CSS, and JavaScript.
+<p></p>The game AI uses the Minimax algorithm with Alpha-Beta Pruning to make optimal moves. The AI evaluates the game board and tries to find the best possible move by simulating all possible outcomes of the game.</p>
 <h2><a href ="https://seannn-sudo.github.io/project-tic-tac-toe-ai/" >Live Demo</a></h2>
-<h2>AI Algorithm</h2>
-The game AI uses the Minimax algorithm with Alpha-Beta Pruning to make optimal moves. The AI evaluates the game board and tries to find the best possible move by simulating all possible outcomes of the game.
 <h2>Features</h2>
 <ul>
     <li>Play against another human player or against the AI.</li>
