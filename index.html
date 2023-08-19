@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: Tic-Tac-Toe</title>
+  <!-- Link to normalize.css for consistent styling across browsers -->
+  <link rel="stylesheet" href="normalize.css">
+  <!-- Link to custom stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load the script.js file after the document is fully loaded -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Modal for selecting game options -->
+  <div class="modal">
+    <form action="#" method="post" id="game-input">
+      <!-- Section for selecting players -->
+      <div class="players-selection">
+        <!-- Player 1 selection -->
+        <div class="input-box">
+          <div class="text">Player 1 (X)</div>
+          <div class="radio-input">
+            <label>
+              <input type="radio" name="player1" value="Human" required>
+              <span>Human</span>
+            </label>
+            <label>
+              <input type="radio" name="player1" value="AI" required>
+              <span>AI</span>
+            </label>
+          </div>
+        </div>
+        <!-- Player 2 selection -->
+        <div class="input-box">
+          <div class="text">Player 2 (O)</div>
+          <div class="radio-input">
+            <label>
+              <input type="radio" name="player2" value="Human" required>
+              <span>Human</span>
+            </label>
+            <label>
+              <input type="radio" name="player2" value="AI" required>
+              <span>AI</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- Section for selecting AI difficulty -->
+      <div class="input-box ai">
+        <div class="text">AI Mode</div>
+        <div class="radio-input ai-difficulty">
+          <label>
+            <input type="radio" name="ai-difficulty" value="0.3">
+            <span>Easy</span>
+          </label>
+          <label>
+            <input type="radio" name="ai-difficulty" value="0.7">
+            <span>Medium</span>
+          </label>
+          <label>
+            <input type="radio" name="ai-difficulty" value="0.9">
+            <span>Hard</span>
+          </label>
+          <label>
+            <input type="radio" name="ai-difficulty" value="1.1">
+            <span>Unbeatable</span>
+          </label>
+        </div>
+      </div>
+      <!-- Button to start the game -->
+      <div><button type="submit" class="button-89">Game Start</button></div>
+    </form>
+  </div>
+  <!-- Main game container -->
+  <div class="container">
+    <!-- Display messages related to the game -->
+    <div class="message"></div>
+    <!-- Game board cells -->
+    <div class="game-board">
+      <!-- Individual cells with data-index for identifying each cell -->
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+    <!-- Button to reset the game -->
+    <button class="reset-game button-89">Play Again</button>
+  </div>
+  <!-- Footer with a link to the author's GitHub -->
+  <footer>
+    <a href="https://github.com/seannn-sudo" target="_blank">Copyright © <span id ="currentYear"></span> seannn-sudo
+    </a>
+  </footer>
+</body>
+</html>

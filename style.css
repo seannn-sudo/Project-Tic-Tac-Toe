@@ -1,0 +1,230 @@
+:root {
+    --text-color: #FAF5E9;
+    --body-color:#0a1428;
+    --button-color:#FFCC00;
+    --button-text-color:#142850;
+    --board-cell-color:#FAF5E9;
+}
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    height: 100vh;
+    display:grid;
+    grid-template-rows: 1fr min-content;
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+footer{
+    background-color: transparent;
+    font-size: clamp(1em, 1vw, 1.5em);
+    padding:0.4em 0em;
+    text-align: center;
+    z-index: 1;
+}
+footer a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+.container{
+    transform: scale(0);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:3em;
+    visibility: hidden;
+}
+.game-board{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    width:320px;
+    aspect-ratio: 1 / 1;
+}
+.game-board .cell {
+    border-bottom: 3px solid var(--board-cell-color);
+    border-right: 3px solid var(--board-cell-color);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2em, 5vw, 3em);
+}
+.game-board .cell:nth-child(3n){
+    border-right: none;
+}
+.game-board .cell:nth-child(n+7){
+    border-bottom: none;
+}
+.game-board .cell:hover, button:hover{
+    cursor: pointer;
+}
+#game-input{
+    display: grid;
+    grid-template-rows: 1fr 1fr min-content;
+    gap: 3em;
+    text-align: center;
+}
+.players-selection{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hide-modal{
+    visibility: hidden;
+}
+/* Add transition property to .input-box.ai */
+.input-box.ai {
+    display:grid;
+    opacity:0.2;
+    z-index: -1;
+    transition: 0.8s linear;
+}
+  
+  /* Add the .show-ai class to trigger the transition */
+  .input-box.ai.show-ai {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hide-form {
+    animation: fadeOut 0.3s linear;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    transition: 0.3s linear
+}
+.show-game {
+    animation: showAnimation 0.4s linear 0.5s;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes showAnimation {
+    to {
+      transform: scale(1);
+      visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;} 
+} 
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;} 
+} 
+
+button[type=submit] {
+    font-size: clamp(1em, 3vw, 2em);
+}
+
+.button-89 {
+   --b: 3px;
+   --s: .45em;
+   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+   font-weight:500;
+   color: var(--text-color);
+   --_p: var(--s);
+   background:
+     conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--button-color) 0)
+     var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+   transition: .3s linear, color 0s, background-color 0s;
+   outline: var(--b) solid #0000;
+   outline-offset: .6em;
+   border: 0;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+}
+.button-89:hover,
+.button-89:focus-visible{
+   --_p: 0px;
+   outline-color: var(--button-color);
+   outline-offset: .05em;
+}
+.button-89:active {
+   background: var(--button-color);
+   color: var(--button-text-color);
+}
+
+.radio-input input {
+    opacity: 0;
+    position: absolute;
+    bottom:0.4em;
+    cursor: pointer;
+}
+  
+.radio-input {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: var(--text-color);
+    color: var(--button-text-color);
+}
+
+.radio-input.ai-difficulty{
+    grid-template-columns: 1fr 1fr;
+}
+
+.radio-input.ai-difficulty label:nth-child(-n+2){
+    border-bottom:1px solid var(--body-color);
+}
+
+.radio-input.ai-difficulty label:nth-child(odd){
+    border-right:1px solid var(--body-color);
+}
+  
+.radio-input label {
+    padding: 0.3em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: clamp(1em, 3vw, 1.5em);
+    position:relative;
+  }
+.radio-input label:first-child{
+    border-bottom:1px solid var(--body-color)
+}
+
+.radio-input label:has(input:checked) {
+    background-color: var(--button-color);
+    transition: 0.15s linear;
+}
+.input-box {
+    display: grid;
+    grid-auto-rows: min-content 1fr;
+    gap: 2em;
+}
+.input-box .text{
+    font-size: clamp(1em, 3vw, 1.5em);
+    padding: 0em 1em
+}
+.message, button.reset-game.button-89 {
+    font-size: clamp(1em, 3vw, 1.5em);
+}
+.X-color{
+    color:red
+}
+.O-color{
+    color: #009B4D;
+}
+.X-color, .O-color{
+    transition: 0.4s linear;
+}
